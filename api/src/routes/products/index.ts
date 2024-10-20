@@ -1,5 +1,6 @@
 // products endpoints - same prefix
-import {Router} from "express";
+import { Router } from "express";
+import { createProduct, deleteProduct, getProductById, listProducts, updateProduct } from "./productsController";
 
 const router = Router();
 
@@ -13,19 +14,15 @@ const router = Router();
  * update is updating a resource => put
  * delete is deleting a resource => delete
  */
-
-// get
-router.get("/", (req, res) => {
-    res.send("the list of products")
-});
-// get by id
-router.get("/:id", (req, res) => {
-    console.log(req.params)
-    res.send("a product")
-});
 // create
-router.post("/", (req, res) => {
-    res.send('new product created')
-});
+router.post("/", createProduct);
+// read
+router.get("/", listProducts);
+// read by id
+router.get("/:id", getProductById);
+// update by id
+router.put("/:id", updateProduct);
+// delete by id
+router.delete("/:id", deleteProduct);
 
 export default router;
