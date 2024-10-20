@@ -6,16 +6,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --import=tsx --watch --env-file=.env src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "db:gen": "drizzle-kit generate",
+    "db:mig": "drizzle-kit migrate",
+    "db:rollb": "drizzle-kit rollback",
+    "db:studio": "drizzle-kit studio"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@neondatabase/serverless": "^0.10.1",
+    "drizzle-orm": "^0.35.2",
     "express": "^4.21.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "drizzle-kit": "^0.26.2",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   }

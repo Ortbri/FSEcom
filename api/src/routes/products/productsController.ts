@@ -9,7 +9,7 @@ export function getProductById(req: Request, res: Response) {
     res.send("get product by id")
 }
 export function createProduct(req: Request, res: Response) { 
-
+    // TODO: save to db
     console.log(req.body)
     
     res.send("create product")
