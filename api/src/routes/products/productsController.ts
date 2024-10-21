@@ -1,4 +1,6 @@
 import { Request, Response } from "express"
+import { db } from "../../db/index";
+import { productsTable } from "../../db/productsSchema";
 
 
 
@@ -8,11 +10,10 @@ export function listProducts(req: Request, res: Response) {
 export function getProductById(req: Request, res: Response) {  
     res.send("get product by id")
 }
-export function createProduct(req: Request, res: Response) { 
-    // TODO: save to db
-    console.log(req.body)
-    
-    res.send("create product")
+export async function createProduct(req: Request, res: Response) { 
+    // console.log(req.body)
+    await db.insert(productsTable).values(req.body)
+    res.send("created product!!!")
 }
 export function updateProduct(req: Request, res: Response) { 
     res.send("update product")
